@@ -4,17 +4,12 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 
-
-const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-});
-
 const Product = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    api
-      .get("/api/products")
+    axios
+      .get("https://project-1-b69v.onrender.com/api/products")
       .then((res) => setProducts(res.data.products))
       .catch((err) => console.log(err));
   }, []);
