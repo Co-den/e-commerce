@@ -3,16 +3,13 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-});
 
 const CategoryProducts = () => {
   const { categoryName } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    api.get(`/api/products/category/${categoryName}`)
+    axios.get(`https://project-1-b69v.onrender.com/api/products/category/${categoryName}`)
       .then(res => setProducts(res.data.data))
       .catch(err => console.error("Error fetching category products:", err));
   }, [categoryName]);
