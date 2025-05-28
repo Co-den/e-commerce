@@ -8,9 +8,7 @@ import Alert from "../components/Alert";
 import { motion } from "framer-motion";
 
 
-const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-});
+
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -22,8 +20,8 @@ const ProductPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    api
-      .get(`/api/products/${id}`)
+    axios
+      .get(`https://project-1-b69v.onrender.com/api/products/${id}`)
       .then((res) => {
         setProduct(res.data.product);
       })
