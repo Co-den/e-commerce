@@ -4,9 +4,6 @@ import { updateUser } from "../redux/authSlice";
 import axios from "axios";
 
 
-const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-});
 
 const Profile = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -33,8 +30,8 @@ const Profile = () => {
     const fetchOrders = async () => {
       try {
         console.log("Starting fetch, user ID:", user?.id);
-        const { data } = await api.get(
-          `/api/orders/user/${user.id}`,
+        const { data } = await axios.get(
+          `https://project-1-b69v.onrender.com/api/orders/user/${user.id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         console.log("API Response:", data);
