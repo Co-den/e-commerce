@@ -2,9 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-});
+
 
 
 // Helper function for token retrieval
@@ -15,8 +13,8 @@ export const loginUser = createAsyncThunk(
   "auth/login",
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      const response = await api.post(
-        "/api/auth/login",
+      const response = await axios.post(
+        "https://project-1-b69v.onrender.com/api/auth/login",
         { email, password },
         {
           headers: { "Content-Type": "application/json" },
@@ -35,8 +33,8 @@ export const registerUser = createAsyncThunk(
   "auth/register",
   async ({ name, email, password }, { rejectWithValue }) => {
     try {
-      const response = await api.post(
-        "/api/auth/register",
+      const response = await axios.post(
+        "https://project-1-b69v.onrender.com/api/auth/register",
         { name, email, password },
         {
           headers: { "Content-Type": "application/json" },
@@ -61,8 +59,8 @@ export const updateUser = createAsyncThunk(
           message: "Unauthorized: No token found",
         });
 
-      const response = await api.put(
-        `/api/auth/updateUser/${id}`,
+      const response = await axios.put(
+        `https://project-1-b69v.onrender.com/api/auth/updateUser/${id}`,
         userData,
         {
           headers: {
@@ -93,7 +91,7 @@ export const deleteUser = createAsyncThunk(
         });
 
       const response = await axios.delete(
-        `https://project-1-207l.onrender.com/api/auth/deleteUser/${userId}`,
+        `https://project-1-b69v.onrender.com/api/auth/deleteUser/${userId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
