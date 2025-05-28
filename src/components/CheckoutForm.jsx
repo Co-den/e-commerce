@@ -62,7 +62,7 @@ const CheckoutForm = ({ cartTotal }) => {
       const {
         data: { clientSecret },
       } = await axios.post(
-        "http://localhost:5000/api/payment/create-payment-intent",
+        "https://project-1-b69v.onrender.com/api/payment/create-payment-intent",
         {
           amount: cartTotal * 100,
           currency: "usd",
@@ -84,7 +84,7 @@ const CheckoutForm = ({ cartTotal }) => {
       if (paymentIntent.status === "succeeded") {
         // Send order data to backend
         await axios.post(
-          "http://localhost:5000/api/orders/after-payment",
+          "https://project-1-b69v.onrender.com/api/orders/after-payment",
           {
             // CheckoutForm Frontend payload
             cartItems: cartItems.map((item) => ({
