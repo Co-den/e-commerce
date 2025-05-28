@@ -8,10 +8,6 @@ import Alert from "../components/Alert";
 import axios from "axios";
 
 
-const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-});
-
 // Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -77,8 +73,8 @@ const Home = () => {
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
       try {
-        const response = await api.get(
-          "/api/products/featured"
+        const response = await axios.get(
+          "https://project-1-b69v.onrender.com/api/products/featured"
         );
         console.log("API Response:", response);
         setFeaturedProducts(response.data.products); // Match your response structure
