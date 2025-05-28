@@ -3,10 +3,6 @@ import { useLocation, Link } from "react-router-dom";
 import axios from "axios";
 
 
-const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-});
-
 
 const OrderConfirmation = () => {
   const { state } = useLocation();
@@ -16,8 +12,8 @@ const OrderConfirmation = () => {
     const fetchOrder = async () => {
       if (state?.paymentId) {
         try {
-          const { data } = await api.get(
-            `/api/orders/payment/${state.paymentId}`,
+          const { data } = await axios.get(
+            `https://project-1-b69v.onrender.com/api/orders/payment/${state.paymentId}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`, // if using auth
