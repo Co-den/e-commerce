@@ -113,7 +113,7 @@ const Home = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative pt-16 pb-32 bg-yellow from-yellow-400 to-orange-500 overflow-hidden"
+        className="relative pt-16 pb-32 bg-green from-green-400 to-green-500 overflow-hidden"
       >
     
         {/* Centered Content */}
@@ -123,7 +123,7 @@ const Home = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-4xl font-extrabold text-green sm:text-5xl md:text-6xl"
+              className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl"
             >
               🐔 Welcome to Agrify Your Trusted Source for Poultry!
             </motion.h1>
