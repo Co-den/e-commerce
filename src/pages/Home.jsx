@@ -148,7 +148,7 @@ const Home = () => {
             >
               <Link
                 to="/products"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-800 hover:bg-green-900 transition-colors"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-700 hover:bg-green-600 transition-colors"
               >
                 Start Shopping
               </Link>
